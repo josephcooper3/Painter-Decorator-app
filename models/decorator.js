@@ -14,4 +14,12 @@ Decorator.prototype.totalLevelsInStock = function () {
   return total
 };
 
+Decorator.prototype.checkEnoughPaint = function (room) {
+  if (this.totalLevelsInStock() >= room.area) {
+    return true
+  } else {
+    return false
+  }
+};
+
 module.exports = Decorator
