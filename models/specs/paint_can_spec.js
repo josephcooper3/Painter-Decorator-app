@@ -21,4 +21,17 @@ describe('PaintCan', function () {
     assert.strictEqual(actual, false)
   })
 
+  it('should be able to empty itself', function () {
+    const can1 = new PaintCan(5)
+    can1.empty()
+    actual = can1.level
+    assert.strictEqual(actual, 0)
+  })
+
+  it('should not be able to empty itself if already empty', function () {
+    const can2 = new PaintCan(0)
+    actual = can2.empty()
+    assert.strictEqual(actual, "This can is already empty")
+  })
+
 })
