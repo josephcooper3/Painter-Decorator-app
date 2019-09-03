@@ -22,4 +22,10 @@ Decorator.prototype.checkEnoughPaint = function (room) {
   }
 };
 
+Decorator.prototype.paintRoom = function (room) {
+  if (this.checkEnoughPaint(room) === true) {
+    room.painted = true
+  }
+};
+
 module.exports = Decorator

@@ -51,4 +51,28 @@ describe ('Decorator', function () {
     assert.strictEqual(actual, false)
   })
 
+  it('can paint room if enough paint in stock', function () {
+    const decorator1 = new Decorator()
+    const can1 = new PaintCan(5)
+    const can2 = new PaintCan(10)
+    decorator1.addPaintToStock(can1)
+    decorator1.addPaintToStock(can2)
+    const room1 = new Room(15)
+    decorator1.paintRoom(room1)
+    actual = room1.painted
+    assert.strictEqual(actual, true)
+  })
+
+  it('cannot paint room if not enough paint in stock', function () {
+    const decorator1 = new Decorator()
+    const can1 = new PaintCan(5)
+    const can2 = new PaintCan(10)
+    decorator1.addPaintToStock(can1)
+    decorator1.addPaintToStock(can2)
+    const room2 = new Room(20)
+    decorator1.paintRoom(room2)
+    actual = room2.painted
+    assert.strictEqual(actual, false)
+  })
+
 })
